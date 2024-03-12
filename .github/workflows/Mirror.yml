@@ -20,4 +20,4 @@ jobs:
           GITEE_TOKEN: ${{ secrets.GITEE_TOKEN }}
           GITEE_REPO: Toolman_ele/automatic1111.stable-diffusion-webui
         run: |
-          git push --force "https://${GITEE_TOKEN}@gitee.com/${GITEE_REPO}.git" "HEAD:master"
+          git push --force "https://Toolman_ele:${GITEE_TOKEN}@gitee.com/${GITEE_REPO}.git" "HEAD:master"
