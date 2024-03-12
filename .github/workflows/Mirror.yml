@@ -20,6 +20,8 @@ jobs:
           GITEE_TOKEN: ${{ secrets.GITEE_TOKEN }}
           GITEE_REPO: Toolman_ele/automatic1111.stable-diffusion-webui
         run: |
-          git push --force "https://Toolman_ele:${GITEE_TOKEN}@gitee.com/${GITEE_REPO}.git" "HEAD:master"
+          # git push --force "https://Toolman_ele:${GITEE_TOKEN}@gitee.com/${GITEE_REPO}.git" "HEAD:master"
           # 推送所有标签到 Gitee
-          git push --force "https://Toolman_ele:${GITEE_TOKEN}@gitee.com/${GITEE_REPO}.git" --tags
+          # git push --force "https://Toolman_ele:${GITEE_TOKEN}@gitee.com/${GITEE_REPO}.git" --tags
+          # 镜像所有分支和标签到Gitee
+          git push --force --mirror "https://Toolman_ele:${GITEE_TOKEN}@gitee.com/${GITEE_REPO}.git"
