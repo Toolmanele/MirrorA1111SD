@@ -1,0 +1,23 @@
+name: Mirror GitHub Repo to Gitee
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # 每天午夜检查一次更新
+  workflow_dispatch: # 允许手动触发
+
+jobs:
+  mirror-to-gitee:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout GitHub repo
+        uses: actions/checkout@v2
+        with:
+          repository: AUTOMATIC1111/stable-diffusion-webui
+          fetch-depth: 0 # 获取所有历史记录以便比较
+
+      - name: Mirror to Gitee
+        env:
+          GITEE_TOKEN: ${{ secrets.GITEE_TOKEN }}
+          GITEE_REPO: Toolman_ele/automatic1111.stable-diffusion-webui
+        run: |
+          git push --force "https://${GITEE_TOKEN}@gitee.com/${GITEE_REPO}.git" "HEAD:master"
