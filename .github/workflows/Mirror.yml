@@ -21,3 +21,5 @@ jobs:
           GITEE_REPO: Toolman_ele/automatic1111.stable-diffusion-webui
         run: |
           git push --force "https://Toolman_ele:${GITEE_TOKEN}@gitee.com/${GITEE_REPO}.git" "HEAD:master"
+          # 推送所有标签到 Gitee
+          git push --force "https://Toolman_ele:${GITEE_TOKEN}@gitee.com/${GITEE_REPO}.git" --tags
